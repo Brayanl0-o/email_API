@@ -1,12 +1,16 @@
 const express = require('express');
+const cors = require('cors')
 const app = express();
-const port = 3000;
+const connectToDatabase = require('./database');
 
-app.get('/',(req, res) => {
-    res.send('Connect to API');
-});
+app.use(cors({
+    origin:"*",
+    methods:"GET,HEAD,POST,PATCH,PUT,DELETE"
+}))
 
-
-app.listen(port, () => {
-    console.log(`Succesfull start in http://localhost:${port}`);
+app.get('/',(req,res)=> {
+    res.send('Connected to Email API')
 })
+
+connectToDatabase();
+module.exports = app;
