@@ -32,6 +32,6 @@ const gameSchema = new Schema ({
         minLength:8,
         maxLength:600
     }
-})
+},{ collection: 'emailAPI' }); 
 
 module.exports = mongoose.model('Game', gameSchema)
