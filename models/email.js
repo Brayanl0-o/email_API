@@ -18,13 +18,14 @@ const gameSchema = new Schema ({
             message: props => `${props.value} is not a valid email`
         },
         required: true,
-        minLength:8,
+        minLength:6,
         maxLength:90
     },
     phoneNumber:{
         type: String,
         required: false,
-        maxLength:20
+        maxLength: 20,
+        default: 'No enviado.',
     },
     message:{
         type: String,

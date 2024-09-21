@@ -3,10 +3,11 @@ const send_email = require('./send-email')
 
 const receiveInfoFromForm = async (req,res) => {
     try{
+        // console.log(req.body);
         const {sendersName, emailAddress,phoneNumber, message} = req.body;
         const newEmail = new Email({sendersName, emailAddress, phoneNumber, message});
         await newEmail.save();
-
+  
         const emailData = {
             sendersName,
             emailAddress,
